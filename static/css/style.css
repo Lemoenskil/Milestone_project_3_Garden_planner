@@ -4,6 +4,28 @@ body {
     flex-direction: column;
   }
 
-  main {
-    flex: 1 0 auto;
+main {
+  flex: 1 0 auto;
+}
+
+.mt-5, .my-5 {
+    margin: 2rem!important;
+}
+
+.card{
+  width: 100%;
+}
+
+
+/*@media(max-width: 769px){
+  .card{
+    display: none;
   }
+}
+
+
+@media(min-width: 769px){
+ #carouselExampleIndicators {
+    display: none;
+  }
+}*/

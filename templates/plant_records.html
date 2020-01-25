@@ -1,11 +1,18 @@
-{% extends 'base.html'%} {% block content %}
+{% extends "base.html" %}
+{% block content %}
 
-<div>
-    {% for plant in plant_data%}
-        {{plant.plant_name}}
-        {{plant.crop_group}}
-    {%endfor%}
+    <div class="row text-center">
+      {% for plant in plants%}
+   
+        <a href="#" class="card col-md-11 col-lg-3 mt-5 col-sm-11 col-xl-3" >
+          <img src="{{plant.picture_link}}" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{plant.plant_name}}</h5>
+              </div>
+        </a>
+      {%endfor%}
+    </div>
     
-</div>
+
 
 {% endblock %}
