@@ -43,7 +43,7 @@ xxxxx
 
 In the links below you can see the mock-up’s that I drew using the mock-up tool “Balsamiq”:
 ![Desk top mockup](/static/images/mockup_garden_planner.jpg)
-![Mobile mockup](/static/images/mockup_garden_planner mobile.jpg)
+![Mobile mockup](/static/images/mockup_garden_planner_mobile.jpg)
 - 
 **Note that the final design has changed from the original design in the mock-ups. The reason why it has changed. I was trying different layouts while I was experimenting and learning the code and sometimes the new designs looked better than the original ones or was just more responsive. *
  
