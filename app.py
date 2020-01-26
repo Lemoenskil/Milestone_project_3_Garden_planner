@@ -13,9 +13,8 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/plant_records')
 def get_plant_record():
-    plant_cards = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(4)
-    plants_carousel = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(4)
-    return render_template("plant_records.html", title="Home", plants = plant_cards, plants_carousel = plants_carousel)
+    plant_cards = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(6)
+    return render_template("plant_records.html", title="Home", plants = plant_cards)
 
     
 
