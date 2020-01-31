@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="mt-2">{{plant.name }}</h1>
+
+    <div class="row pt-3">
+        <div class="col-lg-6">
+
+            <img class="card-img-top border-right" src="{{plant.picture_link}}" alt="">
+            <hr>
+            <h5>{{plant.plant_name}}</h5>
+            <br>
+        </div>
+        <div class="col-lg-6">
+            <h3>Crop Name</h3>
+            <p style="white-space: pre-wrap;">{{plant.crop_family}}</p>
+        </div>
+    </div>
+
+
+{% endblock %}

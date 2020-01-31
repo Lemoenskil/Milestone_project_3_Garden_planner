@@ -14,9 +14,17 @@ mongo = PyMongo(app)
 @app.route('/plant_records')
 def get_plant_record():
     plant_cards = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(6)
-    return render_template("plant_records.html", title="Home", plants = plant_cards)
+    return render_template("plant_records.html", title="Home", plants=plant_cards)
 
-    
+
+@app.route('/view_plant/<plant_id>')
+def view_plant(plant_id):
+    """Shows full plant details"""
+    mongo.db.plant_data.find_one(
+        {'_id': ObjectId(plant_id)},
+    )
+    plant_db = mongo.db.plant_data.find_one_or_404({'_id': ObjectId(plant_id)})
+    return render_template("view_plant.html", plant=plant_db)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
