@@ -1,19 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1 class="mt-2">{{plant.name }}</h1>
+    <h1>{{plant.plant_name }}</h1>
 
     <div class="row pt-3">
         <div class="col-lg-6">
-
             <img class="card-img-top border-right" src="{{plant.picture_link}}" alt="">
             <hr>
-            <h5>{{plant.plant_name}}</h5>
-            <br>
+
         </div>
         <div class="col-lg-6">
-            <h3>Crop Name</h3>
+            <h4>Crop Group</h4>
+            <p style="white-space: pre-wrap;">{{plant.crop_group}}</p>
+            <h4>Crop Family</h4>
             <p style="white-space: pre-wrap;">{{plant.crop_family}}</p>
+            <h4>Soil</h4>
+            <p style="white-space: pre-wrap;">{{plant.siol}}</p>
+            <h4>Position</h4>
+            <p style="white-space: pre-wrap;">{{plant.position}}</p>
+            <h4>Frost Tolerant</h4>
+            <p style="white-space: pre-wrap;">{{plant.frost_tolerant}}</p>
+            <h4>Feeding</h4>
+            <p style="white-space: pre-wrap;">{{plant.feeding}}</p>
+            <h4>Companions</h4>
+            <p style="white-space: pre-wrap;">{{plant.companions}}</p>
+            <h4>Spacing</h4>
+            <p style="white-space: pre-wrap;">{{plant.spacing}}</p>
+            <h4>Sow and Plant</h4>
+            <p style="white-space: pre-wrap;">{{plant.Sow_and_Plant}}</p>
+            <h4>Harvesting</h4>
+            <p style="white-space: pre-wrap;">{{plant.Harvesting}}</p>
+            <h4>Pests</h4>
+            <p style="white-space: pre-wrap;">{{plant.Pests}}</p>
+            <h4>Note</h4>
+            <p style="white-space: pre-wrap;">{{plant.Note}}</p>
         </div>
     </div>
 
