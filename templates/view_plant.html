@@ -20,9 +20,17 @@
             <h4>Position</h4>
             <p>{{plant.position}}</p>
             <h4>Frost Tolerant</h4>
-            <p>{{plant.frost_tolerant}}</p>
+            {% if plant.frost_tolerant %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
             <h4>Feeding</h4>
-            <p>{{plant.feeding}}</p>
+            {% if plant.feeding %}
+                <p>Yes</p>
+            {% else %}
+                <p>No</p>
+            {% endif %}
         </div>
         
 

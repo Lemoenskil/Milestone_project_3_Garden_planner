@@ -41,7 +41,15 @@ def edit_plant(plant_id):
         'picture_link':request.form.get('picture_link'),
         'crop_group': request.form.get('crop_group'),
         'crop_family': request.form.get('crop_family'),
-        'soil':request.form.get('soil')
+        'soil':request.form.get('soil'),
+        'frost_tolerant':request.form.get('frost_tolerant'),
+        'feeding':request.form.get('feeding'),        
+        'companions':request.form.get('companions'),        
+        'spacing':request.form.get('spacing'), 
+        'Sow_and_Plant':request.form.get('Sow_and_Plant'), 
+        'Harvesting':request.form.get('Harvesting'), 
+        'Pests':request.form.get('Pests'), 
+        'Note':request.form.get('Note'), 
     })
     return redirect(url_for('view_plant'))
     

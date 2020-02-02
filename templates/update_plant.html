@@ -1,95 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
-<h3>Edit Plant</h3>
+
   <div class="row">
     <form action="{{ url_for('edit_plant', plant_id=plant._id) }}" method="POST" class="col s12">
+      <h3 class="header-edit-form">Edit Plant</h3>
         <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Placeholder" id="plant_name" type="text" class="" value="{{plant.plant_name }}">
-              <label for="plant_name">Plant Name</label>
+            <div class="input-field col-sm-12 col-md-6 col-lg-3">
+              <input disabled value="{{plant.plant_name }}" id="disabled" type="text" class="validate" >
+              <label for="disabled">Plant Name</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col-sm-12 col-md-6 col-lg-3">
               <input placeholder="Placeholder" id="crop_group" type="text" class="" value="{{plant.crop_group }}">
               <label for="crop_group">Crop Group</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col-sm-12 col-md-6 col-lg-3">
               <input placeholder="Placeholder" id="crop_family" type="text" class="" value="{{plant.crop_family }}">
               <label for="crop_family">Crop Family</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col-sm-12 col-md-6 col-lg-3">
               <input placeholder="Placeholder" id="soil" type="text" class="" value="{{plant.soil }}">
               <label for="soil">Soil</label>
             </div>
         </div>
         <div class ="row">
-            <div class="form-check col l6">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                  <label class="form-check-label" for="exampleRadios1">
-                    Default radio
-                  </label>
-            </div>
-            <div class="form-check col l6">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                  <label class="form-check-label" for="exampleRadios2">
-                    Second default radio
-                  </label>
-            </div>
+            <div class="switch col-sm-12 col-md-6">
+                <label>
+                  {% if plant.frost_tolerant %}
+                          <input id="frost_tolerant" name="frost_tolerant" type="checkbox" checked>
+                    {% else %}
+                         <input id="frost_tolerant" name="frost_tolerant" type="checkbox">
+                    {% endif%}
+                  <span class="lever"></span>
+                  Is Frost Tolerent
+                </label>
+            </div>  
+            <div class="switch col-sm-12 col-md-6">
+                <label>
+                  {% if plant.feeding %}
+                          <input id="feeding" name="feeding" type="checkbox" checked>
+                    {% else %}
+                         <input id="feeding" name="feeding" type="checkbox">
+                    {% endif%}
+                  <span class="lever"></span>
+                  Feeding required
+                </label>
+            </div>                        
         </div>
-       <div class= "row" 
-          <!-- Switch -->
-          <div class="switch">
-            <label>
-              Off
-              <input type="checkbox">
-              <span class="lever"></span>
-              On
-            </label>
-          </div>
-        
-          <!-- Disabled Switch -->
-          <div class="switch">
-            <label>
-              Off
-              <input disabled type="checkbox">
-              <span class="lever"></span>
-              On
-            </label>
-          </div>
-        </div>
-      </div>
       <div class="row">
-        <div class="input-field col s12">
-          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-          <label for="disabled">Disabled</label>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="companions" class="materialize-textarea">{{plant.companions }}</textarea>
+          <label for="companions">Companions</label>
         </div>
-      </div>
-        <div class="row">
-            <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">Textarea</label>
-            </div>
-      </div>
-  </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="password" type="password" class="validate">
-          <label for="password">Password</label>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="spacing" class="materialize-textarea">{{plant.spacing }}</textarea>
+          <label for="spacing">Spacing</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="Sow_and_Plant" class="materialize-textarea">{{plant.Sow_and_Plant }}</textarea>
+          <label for="spacing">Sow and Plant</label>
         </div>
-      </div>
-      <div class="row">
-        <div class="col s12">
-          This is an inline input field:
-          <div class="input-field inline">
-            <input id="email_inline" type="email" class="validate">
-            <label for="email_inline">Email</label>
-            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-          </div>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="Harvesting" class="materialize-textarea">{{plant.Harvesting }}</textarea>
+          <label for="Harvesting">Harvesting</label>
+        </div>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="Pests" class="materialize-textarea">{{plant.Pests }}</textarea>
+          <label for="Pests">Pests</label>
+        </div>
+        <div class="input-field col-sm-12 col-md-6">
+          <textarea id="Note" class="materialize-textarea">{{plant.Note }}</textarea>
+          <label for="Note">Notes and Tips</label>
+        </div>        
+        <div class="input-field inline col-sm-12 col-md-12">
+          <input id="picture_link" type="url" class="validate" value = "{{plant.picture_link }}">
+          <label for="picture_link" data-error="wrong" data-success="right">Picture link</label>
         </div>
       </div>
     </form>
