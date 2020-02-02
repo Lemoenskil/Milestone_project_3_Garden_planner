@@ -25,7 +25,26 @@ def view_plant(plant_id):
     )
     plant_db = mongo.db.plant_data.find_one_or_404({'_id': ObjectId(plant_id)})
     return render_template("view_plant.html", plant=plant_db)
-
+    
+@app.route('/update_plant/<plant_id>')
+def update_plant(plant_id):
+    plants =  mongo.db.plant_data.find_one({"_id": ObjectId(plant_id)})
+    return render_template('update_plant.html', plant=plants)
+                           
+                           
+@app.route('/edit_plant/<plant_id>', methods=["POST"])
+def edit_plant(plant_id):
+    plants = mongo.db.plant_data
+    plants.update( {'_id': ObjectId(plant_id)},
+    {
+        'plant_name':request.form.get('plant_name'),
+        'picture_link':request.form.get('picture_link'),
+        'crop_group': request.form.get('crop_group'),
+        'crop_family': request.form.get('crop_family'),
+        'soil':request.form.get('soil')
+    })
+    return redirect(url_for('view_plant'))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
