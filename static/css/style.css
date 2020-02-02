@@ -48,3 +48,14 @@ main {
 .align-items-center{
     margin: 0px!important;
 }
+
+.under-glass{
+    background-color: yellow;
+}
+.outside-seeding {
+    background-color: orange;
+}
+
+.harvest{
+    background-color: green;
+}
