@@ -35,23 +35,31 @@ def update_plant(plant_id):
 @app.route('/edit_plant/<plant_id>', methods=["POST"])
 def edit_plant(plant_id):
     plants = mongo.db.plant_data
-    plants.update( {'_id': ObjectId(plant_id)},
-    {
+    value_sowing_under_glass = [ month for month in range(1, 13) if f"sowing-under-glass-{month}" in request.form ]
+    value_outside_seeding = [ month for month in range(1, 13) if f"outside-seeding-{month}" in request.form ]
+    value_harvest = [ month for month in range(1, 13) if f"harvest-{month}" in request.form ]
+    plant_data = {
         'plant_name':request.form.get('plant_name'),
         'picture_link':request.form.get('picture_link'),
         'crop_group': request.form.get('crop_group'),
         'crop_family': request.form.get('crop_family'),
         'soil':request.form.get('soil'),
         'frost_tolerant':request.form.get('frost_tolerant'),
+        'position':request.form.get('position'),
         'feeding':request.form.get('feeding'),        
         'companions':request.form.get('companions'),        
         'spacing':request.form.get('spacing'), 
         'Sow_and_Plant':request.form.get('Sow_and_Plant'), 
         'Harvesting':request.form.get('Harvesting'), 
         'Pests':request.form.get('Pests'), 
-        'Note':request.form.get('Note'), 
-    })
-    return redirect(url_for('view_plant'))
+        'Note':request.form.get('Note'),
+        'value_sowing_under_glass':value_sowing_under_glass,
+        'value_outside_seeding':value_outside_seeding,
+        'value_harvest':value_harvest,
+    }
+    print(plant_data)
+    plants.update( {'_id': ObjectId(plant_id)}, plant_data)
+    return redirect(url_for('get_plant_record'))
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

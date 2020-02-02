@@ -69,7 +69,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">{{plant.description_cal_sowing_under_glass}}</th>
+                        <th scope="row">Sow under glass</th>
                         {% for month in range(1, 13) %}
                             {% if month in plant.value_sowing_under_glass %}
                                 <td class = "under-glass"></td>
@@ -79,7 +79,7 @@
                         {% endfor %}
                     </tr>
                     <tr>
-                        <th scope="row">{{plant.description_cal_outside}}</th>
+                        <th scope="row">Outside seeding</th>
                         {% for month in range(1, 13) %}
                             {% if month in plant.value_outside_seeding %}
                                 <td class = "outside-seeding"></td>
@@ -89,7 +89,7 @@
                         {% endfor %}
                     </tr>
                     <tr>
-                        <th scope="row">{{plant.description_cal_harvest}}</th>
+                        <th scope="row">Harvest</th>
                         {% for month in range(1, 13) %}
                             {% if month in plant.value_harvest %}
                                 <td class = "harvest"></td>
