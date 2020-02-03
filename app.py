@@ -4,6 +4,7 @@ from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
 
 
+
 app = Flask ("----name----")
 app.config["MONGO_DBNAME"] = 'garden_planner'
 app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.mongodb.net/garden_planner?retryWrites=true&w=majority'
@@ -15,7 +16,7 @@ mongo = PyMongo(app)
 def get_plant_record():
     plant_cards = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(6)
     return render_template("plant_records.html", title="Home", plants=plant_cards)
-
+    
 
 @app.route('/view_plant/<plant_id>')
 def view_plant(plant_id):
