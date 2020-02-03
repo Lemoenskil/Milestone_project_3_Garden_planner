@@ -28,7 +28,7 @@ main {
 }
 
 .card-sm{
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .form-control-borderless {
@@ -65,4 +65,21 @@ main {
 
 .list_headings{
     color: #d8e332!important;
+}
+
+.jumbotron{
+    margin-top: 10px;
+}
+
+.input-group{
+  display:table;
+  width:100%;
+}
+.input-group .input-field,
+.input-group .input-group-addon{
+  display:table-cell;
+}
+
+.page-item.active .page-link{
+    z-index: 0!important;
 }

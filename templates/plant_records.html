@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <div class="text-center justify-content-center">
+      <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <div class="row">
+          <form class= "col-lg-4" id="search-site" action='search' method='get'>
+            <div class="input-group">
+              <div class="input-field">
+                <input id="search" type="search" name='q'>
+                <label class="label-icon" for="search">
+            <i class="material-icons" >search</i>
+           </label>
+              </div>
+              <button type="submit" class="input-group-addon btn">search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
     <div class="row text-center justify-content-center">
       {% for plant in plants%}
    
@@ -14,7 +36,7 @@
     </div>
     
     <div>
-      <nav aria-label="Page navigation example">
+      <div aria-label="" class="card-sm" >
         <ul class="pagination justify-content-center">
           {% if page > 1 %}
           <li class="page-item">
@@ -42,28 +64,6 @@
           </li>
           {% endif %}
         </ul>
-      </nav>
-    </div>
-
-    
-    <div class="row justify-content-center">
-      <div class="col-10-lg search_box">
-        <form class="card card-sm">
-          <div class="card-body row  align-items-center">
-            <div class="col-1">
-              <i class="material-icons">search</i>
-            </div>
-            <!--end of col-->
-            <div class="col-9">
-              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search plant">
-            </div>
-            <!--end of col-->
-            <div class="col-1">
-              <button class="btn btn-primary" type="submit">Search</button>
-            </div>
-            <!--end of col-->
-          </div>
-        </form>
       </div>
     </div>
 
