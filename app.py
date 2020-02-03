@@ -79,6 +79,11 @@ def edit_plant(plant_id):
     plants.update( {'_id': ObjectId(plant_id)}, convert_form_to_plant_data(request.form))
     return redirect(url_for('get_plant_record'))
     
+@app.route('/delete_plant/<plant_id>')
+def delete_plant(plant_id):
+    mongo.db.plant_data.remove({'_id': ObjectId(plant_id)})
+    return redirect(url_for('get_plant_record'))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
