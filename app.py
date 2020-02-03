@@ -2,20 +2,27 @@ import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo, DESCENDING
 from bson.objectid import ObjectId
-
-
+import math
+import re
 
 app = Flask ("----name----")
 app.config["MONGO_DBNAME"] = 'garden_planner'
 app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.mongodb.net/garden_planner?retryWrites=true&w=majority'
+
+plants_per_page = 6
 
 mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/plant_records')
 def get_plant_record():
-    plant_cards = mongo.db.plant_data.find().sort([('views', DESCENDING)]).limit(6)
-    return render_template("plant_records.html", title="Home", plants=plant_cards)
+    page_number = int(request.args.get('page', 1))
+    plants_to_skip = (page_number - 1) * plants_per_page
+    plant_count = mongo.db.plant_data.count_documents({})
+    page_count = int(math.ceil(plant_count / plants_per_page))
+    page_numbers = range(1, page_count + 1)
+    plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(plants_per_page)
+    return render_template("plant_records.html", title="Home", plants=plants_on_page, page=page_number, pages=page_numbers, total=page_count)
     
 
 @app.route('/view_plant/<plant_id>')
