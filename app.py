@@ -23,7 +23,10 @@ def get_plant_record():
     page_numbers = range(1, page_count + 1)
     plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(plants_per_page)
     return render_template("plant_records.html", title="Home", plants=plants_on_page, page=page_number, pages=page_numbers, total=page_count)
-    
+
+@app.route('/list_plant') 
+def list_plant():
+    return render_template("list_plant.html", plants=mongo.db.plant_data.find())
 
 @app.route('/view_plant/<plant_id>')
 def view_plant(plant_id):

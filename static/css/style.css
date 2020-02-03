@@ -28,7 +28,7 @@ main {
 }
 
 .card-sm{
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .form-control-borderless {
@@ -61,4 +61,8 @@ main {
 }
 .header-edit-form{
     text-align: center;
+}
+
+.list_headings{
+    color: #d8e332!important;
 }
