@@ -8,11 +8,11 @@
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <div class="row">
-          <form class= "col-lg-4" id="search-site" action='search' method='get'>
+          <form class= "col-lg-4" id="search-site" action="{{ url_for('search') }}"' method='get'>
             <div class="input-group">
               <div class="input-field">
-                <input id="search" type="search" name='q'>
-                <label class="label-icon" for="search">
+                <input id="search" type="search" name='query'>
+
             <i class="material-icons" >search</i>
            </label>
               </div>

@@ -25,19 +25,52 @@ The vegetables will be stored as documents in a non-relational MongoDB database.
 
 The Garden Planner website has the following requirements
 
-xxxxx
+Their primary target audiences are herb, vegetable and fruit gardeners or prospective gardeners
+The website need to include the following 
+- Database with plants 
+- Ability to add new plant records 
+- The ability to change existing records 
+- The ability to delete records
+- View a single records
+- Search for plant records
+- View the plant calender
+- Browse the website with out signing in 
+- Only user signed in can update, create and delete records
+
+I need the following for the website
+- logo
+- Data Base for the plant records (source of information)
+- Picture for the landing page
 
 #### User stories
-
-xxxx
+- As a user, I want to know more about the plants and when to grow them.
+- As a user, I'd like to see clean, well presented website that is easy to navigate
+- As a user, I'd like to see a variety different plants
+- As a user, I’d like for the website to be made so that it will work and adapt to all manner of devices (responsive design) 
+- As a user, I want to read on tips and the best way to gow the plant.
+- As a user, I want add new plants to the database and have the ability to change or delete it when is have new tips.  
+- As a user, I want to have a overview of the plant calender for the plant in my data base
+- As a user, I'd like to see some text to explain what is can expect on the website (instructions) 
+- As a user, I'd like to see engaging use of colour making the website pleasant to look at and keeping the user interested 
+- As a user, I'd want to navigate easly and alway have the ability to return to the home page
+- As a user, I want to login to be able to make changes in the database
+- As a user, I want to browse through the availbe plant records
 
 ### Project Purpose
 
-xxxxx
+I am creating a website aimed towards helping current and prospective gardeners getting an overview of plants (vegetable and fruit) that was planted successfully in my region. 
+The website will use MongoDB database, flask and CSS to give the data throught to the frontend.    
+The infromation that is availbe for the plant will help you to plant it in the right manner which will include infromation on soil, pests, position, harvest and feeding.
+When a registered user logon he/she will have the ability to change, add or delete the current records
+A not registered user will be able to browse search and view the data on plants.  
+Included is an overview of the plant calender where the user can have an quick overview when to plant what.   
 
 ### Scope of website
-
-xxxxx
+- A Responsive website that is conected with a unstructerd database
+- A page to give an overview to browse, search the plants
+- A form to change and create a plant records
+- A page with a plant calender table
+- Logon ability for a user
 
 ### Website Structure
 

@@ -5,6 +5,8 @@ from bson.objectid import ObjectId
 import math
 import re
 
+
+
 app = Flask ("----name----")
 app.config["MONGO_DBNAME"] = 'garden_planner'
 app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.mongodb.net/garden_planner?retryWrites=true&w=majority'
@@ -92,15 +94,15 @@ def search():
     """Provides logic for search bar"""
     orig_query = request.args['query']
     query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in title, tags or ingredients
-    results = mongo.db.recipes.find({
+    # find instances of the entered word in plant name, Notes or crop family
+    results = mongo.db.plant_data.find({
         '$or': [
-            {'title': query},
-            {'tags': query},
-            {'ingredients': query},
+            {'plant_name': query},
+            {'Note': query},
+            {'crop_group': query},
         ]
     })
-    return render_template('search.html', query=orig_query, results=results)
+    return render_template('search_results.html', query=orig_query, results=results)
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
