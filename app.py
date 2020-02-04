@@ -86,6 +86,21 @@ def edit_plant(plant_id):
 def delete_plant(plant_id):
     mongo.db.plant_data.remove({'_id': ObjectId(plant_id)})
     return redirect(url_for('get_plant_record'))
+
+@app.route('/search')
+def search():
+    """Provides logic for search bar"""
+    orig_query = request.args['query']
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
+    # find instances of the entered word in title, tags or ingredients
+    results = mongo.db.recipes.find({
+        '$or': [
+            {'title': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    })
+    return render_template('search.html', query=orig_query, results=results)
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
