@@ -4,6 +4,8 @@ This web application has been designed and built for the requirements of the "Da
 
 Offering this tool to the local hobby gardeners i hope the get the best input and tips to grow the perfect vegetable.  With the experience and  I hope to get the correct species for plant that if fit for my region and also the best planting methodes for a optimun ylied.
 
+The project can be viewed [https://yvette-garden-planner.herokuapp.com/](https://yvette-garden-planner.herokuapp.com/)
+
 ## Specification / Design
 
 Setting up  a database of vegetables that can be grown in North Brabant, which can be changed and new contributions can be made for local vegetable gardeners.
