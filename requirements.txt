@@ -17,8 +17,6 @@ cookiecutter==1.6.0
 dateparser==0.7.2
 Django==2.0.2
 dj-database-url==0.5.0
-dj-static==0.0.6
-djangorestfra
 docker==4.1.0
 docutils==0.15.2
 Flask==1.0.4
