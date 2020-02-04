@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 def get_plant_record():
     page_number = int(request.args.get('page', 1))
     plants_to_skip = (page_number - 1) * plants_per_page
-    plant_count = mongo.db.plant_data.count_documents({})
+    plant_count = mongo.db.plant_data.count({})
     page_count = int(math.ceil(plant_count / plants_per_page))
     page_numbers = range(1, page_count + 1)
     plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(plants_per_page)
