@@ -92,9 +92,9 @@ def delete_plant(plant_id):
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
-    orig_query = request.args['query']
-    query = {'$regex': re.compile('.*{}.*'.format(orig_query)), '$options': 'i'}
-    # find instances of the entered word in plant name, Notes or crop family
+    orig_query = request.args['query'].strip()
+    regx = re.compile(f".*{orig_query}.*", re.IGNORECASE)
+    query = {'$regex': regx }
     results = mongo.db.plant_data.find({
         '$or': [
             {'plant_name': query},

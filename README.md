@@ -83,7 +83,37 @@ In the links below you can see the mock-up’s that I drew using the mock-up too
 **Note that the final design has changed from the original design in the mock-ups. The reason why it has changed. I was trying different layouts while I was experimenting and learning the code and sometimes the new designs looked better than the original ones or was just more responsive. *
  
 ### Design Ideas
-xxx
+
+- Navbar and Footer
+Standart on all the pages there will be a Navbar and footer.  The Navbar will navigate to Home, add Plant, Plant Calander and Registered
+
+- The landing page 
+Wil have a maximum of 6 cards displayed with a picture and a plant name. A Jumbothron with a search bar will be shown on top 
+
+- Single plant view
+Will have a picture, a plant table and the information on the plant.  A floating button will be availbe when you are loging to change or delete the record.
+
+- Add Plant/Crops
+page will be a form where you can create the date.  The table will be updated using a checkbox.  and there will be a sudmit button.
+
+- Edit Plant/Crops
+page will be a form where you can update the date.  The table will be updated using a checkbox.  and there will be a sudmit button.
+
+- Search result page
+This page will sow the result of the search of the name crops or nots.
+
+- Plant Calander
+From the Navbar you can navigate here.  A talble will be on this page
+
+- Delete warning page
+This page will have a warning before you delete the record and sudmit button
+
+- Register page
+Page will have a form and a sudmit button
+
+- login plage
+Form with a warning and a sudmit button
+
 
 ##### Font
 xxxx
@@ -93,18 +123,44 @@ xxxx
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+- All pages feature a navigation bar at the top, see useful links, or login / logout. 
+- Upon viewing the page  the navbar will give you the option to login/or out, go to plant calender, home , register or add plant
+- On the landing page maximum of 6 cards will be displayed if you want to browse you can use the page navigation on the bottom.  You can also click on the card that will take you to the plant overview page.
+- On the top of the landing page below the navbar you will find a jumbotron with a search bar, which will allow you to search on the name, crop group or notes.
+ 
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- For each vegetable in the list the common name, genus, species and category are shown, and the username of the entry's creator, together with buttons to show a detailed view, and for registered users buttons to edit or delete the vegetable.   The delete option features a modal confirmation dialogue to mitigate the chances of an inadvertant deletion.
+
+- For registered users there is also a well placed "Add Vegetable" link at the top of the list in addition to the one in the navbar.
+
+- As well as information about the site, the "About" page displays live up-to-date statistics about the database and brief details regarding its development.
+
+- The forms to add and edit vegetable entries have sensible defaults for which fields are required and which are not editable, and for exampe allow only alphabetic characters in common names, genera and species.
+
+- When editing or adding a vegetable, the user has the option of uploading a photograph, which will be saved and displayed in the detailed view.
 
 ### Features Left to Implement
-- Another feature idea
+
+- Multiple photos for each vegetable.
+
+- More fields, for properties like soil type, recommended acidity (pH value), time to sow (outside / inside), time to plant out, time to harvest, nutrient needs, tips and tricks, together with the ability to sort and filter by these fields.
+
+- A blog page where expert gardeners can share their ideas about organic vegetable growing in West Cork.
+
+- Proper, secure user registration and authorisation.
+
+- Any features subsequently requested if thought to be useful and feasible.
+
+- Augmented and improved content.
+
+- Persistence of user-uploaded images (see the section "Interesting Bugs" below in this README.)
+
+- As the site grows, with more entries, maybe I will create fields for planting time, harvest time, nutrient requirements, soil type etc..   This will depend on what users want and what feels appropriate and useful to me.
+
+- The project is open-source so I am open tto pull requests.
+
 
 ## Technologies Used
 
