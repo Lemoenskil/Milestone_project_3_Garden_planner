@@ -96,17 +96,14 @@ Will have a picture, a plant table and the information on the plant.  A floating
 - Add Plant/Crops
 page will be a form where you can create the date.  The table will be updated using a checkbox.  and there will be a sudmit button.
 
-- Edit Plant/Crops
-page will be a form where you can update the date.  The table will be updated using a checkbox.  and there will be a sudmit button.
+- Edit, Delete and view Plant/Crops
+page will be a form where you can update the date (change or delete.  The table will be updated using a checkbox.  button for delete and change with a modal.
 
 - Search result page
 This page will sow the result of the search of the name crops or nots.
 
-- Plant Calander
+- Plant Calender
 From the Navbar you can navigate here.  A talble will be on this page
-
-- Delete warning page
-This page will have a warning before you delete the record and sudmit button
 
 - Register page
 Page will have a form and a sudmit button
@@ -129,37 +126,27 @@ xxxx
 - Upon viewing the page  the navbar will give you the option to login/or out, go to plant calender, home , register or add plant
 - On the landing page maximum of 6 cards will be displayed if you want to browse you can use the page navigation on the bottom.  You can also click on the card that will take you to the plant overview page.
 - On the top of the landing page below the navbar you will find a jumbotron with a search bar, which will allow you to search on the name, crop group or notes.
- 
+- On the view page there will be a floading button on which you can either delete or edit the records.  When editing it will redirect you to a form, when deleting it will redirect you to a modal
+- From the navigation bar you can be directed to to the add record form
+- Both add record and edit record form have a Table with checkbox to select the plant calender.
+- The search bar in the Jumbothron will give you the option to search the data base and redirect you to a page with search results
+- In the navbar you are redirected to the register page where you can create a user using a form.
+- The option to loging is also on the landing page, which will redirect you to a form to loging
 
-- For each vegetable in the list the common name, genus, species and category are shown, and the username of the entry's creator, together with buttons to show a detailed view, and for registered users buttons to edit or delete the vegetable.   The delete option features a modal confirmation dialogue to mitigate the chances of an inadvertant deletion.
+- ????The forms to add and edit vegetable entries have sensible defaults for which fields are required and which are not editable, and for exampe allow only alphabetic characters in common names, genera and species.
 
-- For registered users there is also a well placed "Add Vegetable" link at the top of the list in addition to the one in the navbar.
-
-- As well as information about the site, the "About" page displays live up-to-date statistics about the database and brief details regarding its development.
-
-- The forms to add and edit vegetable entries have sensible defaults for which fields are required and which are not editable, and for exampe allow only alphabetic characters in common names, genera and species.
-
-- When editing or adding a vegetable, the user has the option of uploading a photograph, which will be saved and displayed in the detailed view.
+- ????When editing or adding a vegetable, the user has the option of uploading a photograph, which will be saved and displayed in the detailed view.
 
 ### Features Left to Implement
 
-- Multiple photos for each vegetable.
-
-- More fields, for properties like soil type, recommended acidity (pH value), time to sow (outside / inside), time to plant out, time to harvest, nutrient needs, tips and tricks, together with the ability to sort and filter by these fields.
-
-- A blog page where expert gardeners can share their ideas about organic vegetable growing in West Cork.
-
+- Want to make different data object with set fields that you can choose from examle pest type, soil types.
+- Want to make it more sosiable add a blog where user can discuss different topics regards to garding
 - Proper, secure user registration and authorisation.
+- Augmented the styling and visual effect and improved content.
+- I have lose properties like soil, position, pest that i can use later to put into dashbord to make the data more visual
+- A option to create your own account select select your plants and get your own calender
 
-- Any features subsequently requested if thought to be useful and feasible.
 
-- Augmented and improved content.
-
-- Persistence of user-uploaded images (see the section "Interesting Bugs" below in this README.)
-
-- As the site grows, with more entries, maybe I will create fields for planting time, harvest time, nutrient requirements, soil type etc..   This will depend on what users want and what feels appropriate and useful to me.
-
-- The project is open-source so I am open tto pull requests.
 
 
 ## Technologies Used

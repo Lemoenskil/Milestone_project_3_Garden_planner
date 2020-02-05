@@ -83,3 +83,19 @@ main {
 .page-item.active .page-link{
     z-index: 0!important;
 }
+
+.card-img-top{
+    height: 60%;
+}
+.modal{
+    background-color: transparent;
+    max-height: 100%;
+}
+
+.modal .modal-footer{
+    background-color: transparent;
+}
+
+.container {
+    overflow: auto;
+}
