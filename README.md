@@ -132,6 +132,7 @@ xxxx
 - The search bar in the Jumbothron will give you the option to search the data base and redirect you to a page with search results
 - In the navbar you are redirected to the register page where you can create a user using a form.
 - The option to loging is also on the landing page, which will redirect you to a form to loging
+- In the responsive view for mobile ther are a side nav bar and the basic sizing
 
 - ????The forms to add and edit vegetable entries have sensible defaults for which fields are required and which are not editable, and for exampe allow only alphabetic characters in common names, genera and species.
 
@@ -142,7 +143,7 @@ xxxx
 - Want to make different data object with set fields that you can choose from examle pest type, soil types.
 - Want to make it more sosiable add a blog where user can discuss different topics regards to garding
 - Proper, secure user registration and authorisation.
-- Augmented the styling and visual effect and improved content.
+- Augmenting the styling and visual effect and improved content.
 - I have lose properties like soil, position, pest that i can use later to put into dashbord to make the data more visual
 - A option to create your own account select select your plants and get your own calender
 
