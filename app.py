@@ -1,15 +1,20 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
+from form import LoginForm, RegisterForm
 from bson.objectid import ObjectId
 import math
 import re
+import bcrypt
 
 
 
 app = Flask ("----name----")
 app.config["MONGO_DBNAME"] = 'garden_planner'
 app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.mongodb.net/garden_planner?retryWrites=true&w=majority'
+
+# Set the secret key to some random bytes. Keep this really secret!
+app.secret_key = os.environ.get('SECRET_KEY') or 'y6rdh777y685hf67gk9786j65g9h*&^^*(^'
 
 plants_per_page = 6
 
@@ -25,6 +30,35 @@ def get_plant_record():
     page_numbers = range(1, page_count + 1)
     plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(plants_per_page)
     return render_template("plant_records.html", title="Home", plants=plants_on_page, page=page_number, pages=page_numbers, total=page_count)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register_new_user():
+    """Registers a new user"""
+    form = RegisterForm(request.form)
+    if form.validate_on_submit():
+        all_existing_users = mongo.db.user_data
+        found_user = all_existing_users.find_one({
+            'name': request.form['username']
+        })
+
+        if found_user:
+            flash(f"Username `{request.form['username']}` is already taken. Please try a different username.")
+            return redirect(url_for('register_new_user'))
+        else:
+            # Convert password to hash to prevent password leakage should we get hacked 
+            hashed_password = bcrypt.hashpw(
+                request.form['password'].encode('utf-8'), bcrypt.gensalt()
+            )
+            all_existing_users.insert_one({
+                'name': request.form['username'],
+                'password': hashed_password,
+                'email': request.form['email']
+            })
+            # User successfully registered, so treat the user as logged in.
+            session['username'] = request.form['username']
+            return redirect(url_for('get_plant_record'))
+    return render_template('register.html', title='Register', form=form)
+
 
 @app.route('/list_plant') 
 def list_plant():
@@ -92,8 +126,8 @@ def delete_plant(plant_id):
 @app.route('/search')
 def search():
     """Provides logic for search bar"""
-    orig_query = request.args['query'].strip()
-    regx = re.compile(f".*{orig_query}.*", re.IGNORECASE)
+    query_A = request.args['query'].strip()
+    regx = re.compile(f".*{query_A}.*", re.IGNORECASE)
     query = {'$regex': regx }
     results = mongo.db.plant_data.find({
         '$or': [
@@ -102,7 +136,7 @@ def search():
             {'crop_group': query},
         ]
     })
-    return render_template('search_results.html', query=orig_query, results=results)
+    return render_template('search_results.html', query=query_A, results=results)
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
