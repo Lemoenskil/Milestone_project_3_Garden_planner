@@ -60,6 +60,35 @@ def register_new_user():
     return render_template('register.html', title='Register', form=form)
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Login handler"""
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('get_plant_record', title="Sign In"))
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        # get all users
+        users = mongo.db.user_data
+        # try and get one with same name as entered
+        db_user = users.find_one({'name': request.form['username']})
+
+        if db_user:
+            # check password using hashing
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'),
+                             db_user['password']) == db_user['password']:
+                session['username'] = request.form['username']
+                session['logged_in'] = True
+                # successful redirect to home logged in
+                return redirect(url_for('get_plant_record', title="Sign In", form=form))
+            # must have failed set flash message
+            flash('Invalid username/password combination')
+    return render_template("login.html", title="Sign In", form=form)
+
+
+
 @app.route('/list_plant') 
 def list_plant():
     return render_template("list_plant.html", plants=mongo.db.plant_data.find())
