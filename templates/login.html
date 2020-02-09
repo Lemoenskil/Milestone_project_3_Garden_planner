@@ -40,7 +40,8 @@
                 <p>{{ form.submit() }}</p>
             </button>
         </form>
+        <p>Not registered? Then please <a href="{{ url_for('register_new_user') }}">register here</a></p>
     </div>
-    <p>Not registered? Then please <a href="{{ url_for('register') }}">register here</a></p>
+    
 {% endblock %}
 

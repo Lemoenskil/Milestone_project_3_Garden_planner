@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, abort, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from form import LoginForm, RegisterForm
 from bson.objectid import ObjectId
@@ -43,11 +43,11 @@ def register_new_user():
 
         if found_user:
             flash(f"Username `{request.form['username']}` is already taken. Please try a different username.")
-            return redirect(url_for('register_new_user'))
         else:
             # Convert password to hash to prevent password leakage should we get hacked 
             hashed_password = bcrypt.hashpw(
-                request.form['password'].encode('utf-8'), bcrypt.gensalt()
+                request.form['password'].encode('utf-8'),
+                bcrypt.gensalt()
             )
             all_existing_users.insert_one({
                 'name': request.form['username'],
@@ -62,31 +62,36 @@ def register_new_user():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Login handler"""
-    if session.get('logged_in'):
-        if session['logged_in'] is True:
-            return redirect(url_for('get_plant_record', title="Sign In"))
+    """Logs the user in"""
+    if session.get('logged_in') is True:
+        return redirect(url_for('get_plant_record', title="Sign In"))
 
     form = LoginForm()
 
     if form.validate_on_submit():
-        # get all users
-        users = mongo.db.user_data
-        # try and get one with same name as entered
-        db_user = users.find_one({'name': request.form['username']})
+        all_existing_users = mongo.db.user_data
+        found_user = all_existing_users.find_one({
+            'name': request.form['username']
+        })
 
-        if db_user:
-            # check password using hashing
-            if bcrypt.hashpw(request.form['password'].encode('utf-8'),
-                             db_user['password']) == db_user['password']:
+        if found_user:
+            password_matches = bcrypt.checkpw(
+                request.form['password'].encode('utf-8'),
+                found_user['password']
+            )
+            if password_matches:
+                # Successful log-in: Store and redirect
                 session['username'] = request.form['username']
                 session['logged_in'] = True
-                # successful redirect to home logged in
                 return redirect(url_for('get_plant_record', title="Sign In", form=form))
-            # must have failed set flash message
-            flash('Invalid username/password combination')
+            flash('Invalid username / password combination')
     return render_template("login.html", title="Sign In", form=form)
 
+@app.route('/logout')
+def logout():
+    """Logs the user out"""
+    session.clear()
+    return redirect(url_for('get_plant_record'))
 
 
 @app.route('/list_plant') 
@@ -101,19 +106,25 @@ def view_plant(plant_id):
     )
     plant_db = mongo.db.plant_data.find_one_or_404({'_id': ObjectId(plant_id)})
     return render_template("view_plant.html", plant=plant_db)
-    
+
 @app.route('/add_plant')
 def add_plant():
+    if 'username' not in session:
+        return redirect(url_for('login'))
     return render_template("add_plant.html")
  
 @app.route('/insert_plant', methods=['POST'])
 def insert_plant():
+    if 'username' not in session:
+        abort(401)
     plants = mongo.db.plant_data
     plants.insert_one(convert_form_to_plant_data(request.form))
     return redirect(url_for('get_plant_record'))
     
 @app.route('/update_plant/<plant_id>')
 def update_plant(plant_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
     plants =  mongo.db.plant_data.find_one({"_id": ObjectId(plant_id)})
     return render_template('update_plant.html', plant=plants)
                            
@@ -143,12 +154,16 @@ def convert_form_to_plant_data(form):
     
 @app.route('/edit_plant/<plant_id>', methods=["POST"])
 def edit_plant(plant_id):
+    if 'username' not in session:
+        abort(401)
     plants = mongo.db.plant_data
     plants.update( {'_id': ObjectId(plant_id)}, convert_form_to_plant_data(request.form))
     return redirect(url_for('get_plant_record'))
     
 @app.route('/delete_plant/<plant_id>')
 def delete_plant(plant_id):
+    if 'username' not in session:
+        abort(401)
     mongo.db.plant_data.remove({'_id': ObjectId(plant_id)})
     return redirect(url_for('get_plant_record'))
 

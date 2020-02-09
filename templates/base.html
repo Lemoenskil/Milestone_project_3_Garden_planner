@@ -21,15 +21,16 @@
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
                     <li><a href="{{url_for('register_new_user')}}">Register</a></li>
-                    <li><a href="">Sign In</a></li>
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                    <li><a href="{{url_for('logout')}}">Log off</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile">
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
-                    <li><a href="{{url_for('register_new_user')}}">Register</a></li>
-                    <li><a href="">Sign In</a></li>
-                    
+                    <li><a href="{{ url_for('register_new_user') }}">Register</a></li>
+                    <li><a href="{{url_for('logout')}}">Log off</a></li>
+                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
                 </ul>
             </div>
         </nav> 
@@ -37,7 +38,7 @@
                 <div class="text-dark font-italic bg-transparent text-center pt-2 pr-4">{{ session['username'] }} ,welcome back </div>
             {% else %}
                 <div class="text-dark font-italic bg-transparent text-center">please <a href="{{ url_for('login') }}">login</a>
-                or <a href="{{ url_for('register') }}">register</a>.
+                or <a href="{{ url_for('register_new_user') }}">register</a>.
                 </div>
             {% endif %}    
     </header>
@@ -51,7 +52,7 @@
         <div class="container" class="footer-copyright">
             <p class=float-right> © 2014 Copyright Text </p>
             <p class="text-dark font-italic bg-transparent float-left"> 
-            <a href="">login</a>or <a href="">register</a>.</p>
+            <a href="{{ url_for('login') }}">login</a>or <a href="{{ url_for('register_new_user') }}">register</a>.</p>
         </div>
     </footer>
     
