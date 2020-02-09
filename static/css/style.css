@@ -2,6 +2,32 @@
     margin: 2rem!important;
 }
 
+nav .brand-logo{
+    font-size: 1.2rem!important;
+}
+
+.jumbotron {
+  background-image:url("/static/images/gardeners.gif");
+  background-size: cover;
+  margin-top: 10px;
+
+}
+.inner{
+    margin-top:70px ;
+    }
+
+@media(min-width: 450px){
+    .inner{
+   position:absolute;
+   bottom: 0;
+    }
+   .jumbotron{
+    position:relative; 
+    height: 350px;
+   }
+}
+  
+
 .card{
   width: 100%;
 }
@@ -67,9 +93,6 @@ main {
     color: #d8e332!important;
 }
 
-.jumbotron{
-    margin-top: 10px;
-}
 
 .input-group{
   display:table;
@@ -100,4 +123,9 @@ main {
 
 .container {
     overflow: auto;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }

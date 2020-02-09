@@ -14,8 +14,8 @@
     <header>
        <nav>
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Logo</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="{{url_for('get_plant_record')}}" class="brand-logo">Garden Planner North Brabant</a>
+                <a href="{{url_for('get_plant_record')}}" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
@@ -23,7 +23,7 @@
                     <li><a href="{{url_for('register_new_user')}}">Register</a></li>
                     <li><a href="">Sign In</a></li>
                 </ul>
-                <ul class="side-nav" id="mobile-demo">
+                <ul class="side-nav" id="mobile">
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
