@@ -7,11 +7,16 @@ nav .brand-logo{
 }
 
 .jumbotron {
-  background-image:url("/static/images/gardeners.gif");
-  background-size: cover;
-  margin-top: 10px;
-
+    background-color: transparent;
+    width: 100%;
 }
+  
+.image{
+    margin-top: 10px;
+    background-image:url("/static/images/gardeners.gif");
+    background-size: cover;  
+}
+
 .inner{
     margin-top:70px ;
     }
