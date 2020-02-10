@@ -130,8 +130,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" type="submit" name="action">
-                        <a href="{{url_for('delete_plant', plant_id=plant._id)}}"></a>Delete</button>
+                    <a href="{{url_for('delete_plant', plant_id=plant._id)}}" class="btn green lighten-1">Delete</a></button>
                 </div>
             </div>
         </div>

@@ -154,6 +154,7 @@ def convert_form_to_plant_data(form):
     
 @app.route('/edit_plant/<plant_id>', methods=["POST"])
 def edit_plant(plant_id):
+    print("whapsie")
     if 'username' not in session:
         abort(401)
     plants = mongo.db.plant_data
@@ -162,6 +163,7 @@ def edit_plant(plant_id):
     
 @app.route('/delete_plant/<plant_id>')
 def delete_plant(plant_id):
+    print("oopsie")
     if 'username' not in session:
         abort(401)
     mongo.db.plant_data.remove({'_id': ObjectId(plant_id)})
