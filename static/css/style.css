@@ -52,12 +52,23 @@ main {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: red;
+    background-color: forestgreen;
     color: white;
     text-align: center;
     padding: 0px;
 }
 
+.page-item.active .page-link{
+    background-color: forestgreen;
+}
+
+.btn:hover {
+    background-color:forestgreen!important;
+}
+
+a{
+    color: greenyellow;
+}
 .card-sm{
   margin-bottom: 50px;
 }
@@ -133,4 +144,8 @@ main {
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+.nav-wrapper{
+    background-color: forestgreen;
 }
