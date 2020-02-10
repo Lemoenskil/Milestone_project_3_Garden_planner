@@ -18,11 +18,14 @@
                 <a href="{{url_for('get_plant_record')}}" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
-                    <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
+                {% if 'username' not in session %}
                     <li><a href="{{url_for('register_new_user')}}">Register</a></li>
                     <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                {% else %}    
                     <li><a href="{{url_for('logout')}}">Log off</a></li>
+                    <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
+                {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile">
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
@@ -52,7 +55,10 @@
         <div class="container" class="footer-copyright">
             <p class=float-right> © 2014 Copyright Text </p>
             <p class="text-dark font-italic bg-transparent float-left"> 
-            <a href="{{ url_for('login') }}">login</a>or <a href="{{ url_for('register_new_user') }}">register</a>.</p>
+                <a href="{{ url_for('login') }}">login</a>
+                 or 
+                <a href="{{ url_for('register_new_user') }}">register</a>.
+            </p>
         </div>
     </footer>
     
