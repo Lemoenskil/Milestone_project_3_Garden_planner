@@ -12,7 +12,15 @@
 </head>
 <body>
     <header>
-       <nav>
+
+        <!-- Dropdown Structure -->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#" ><i class="tiny material-icons left">account_circle</i> {{session['username']}}</a></li>
+            <li><a href="{{url_for('logout')}}">Log off</a></li>
+        </ul>
+
+
+        <nav>
             <div class="nav-wrapper">
                 <a href="{{url_for('get_plant_record')}}" class="brand-logo">Garden Planner North Brabant</a>
                 <a href="{{url_for('get_plant_record')}}" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -20,11 +28,12 @@
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
                 {% if 'username' not in session %}
-                    <li><a href="{{url_for('register_new_user')}}">Register</a></li>
-                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
-                {% else %}    
-                    <li><a href="{{url_for('logout')}}">Log off</a></li>
+                    <li><a href="{{url_for('login')}}">Sign-in / Register</a></li>
+                {% else %}
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
+                    <li><a href='#' data-activates='dropdown1' class="dropdown-button">
+                        <i class="small material-icons left">account_circle</i> {{session['username']}}</a>
+                    </li>
                 {% endif %}
                 </ul>
                 <ul class="side-nav" id="mobile">
@@ -37,13 +46,9 @@
                 </ul>
             </div>
         </nav> 
-            {% if 'username' in session %}
-                <div class="text-dark font-italic bg-transparent text-center pt-2 pr-4">{{ session['username'] }} ,welcome back </div>
-            {% else %}
-                <div class="text-dark font-italic bg-transparent text-center">please <a href="{{ url_for('login') }}">login</a>
-                or <a href="{{ url_for('register_new_user') }}">register</a>.
-                </div>
-            {% endif %}    
+        
+
+                            
     </header>
     
     <main class="container">
@@ -53,28 +58,30 @@
     
     <footer class="page-footer">
         <div class="container" class="footer-copyright">
-            <p class=float-right> © 2014 Copyright Text </p>
+            <br>
             <p class="text-dark font-italic bg-transparent float-left"> 
                 <a href="{{ url_for('login') }}">login</a>
                  or 
                 <a href="{{ url_for('register_new_user') }}">register</a>.
             </p>
+            <p class=float-right> © 2014 Copyright Text </p>
         </div>
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".button-collapse").sideNav();
             $('.fixed-action-btn').floatingActionButton();
+            $(".dropdown-button").dropdown();
         });
         $('#myModal').on('shown.bs.modal', function () {
              $('#myInput').trigger('focus')
         });
+        
     </script>
 </body>
 
