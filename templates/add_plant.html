@@ -1,128 +1,128 @@
 {% extends "base.html" %}{% block content %}
-
-  <div class="row">
-    <form action="{{ url_for('insert_plant') }}" method="POST" class="col s12">
-      <h3 class="header-edit-form">Edit Plant</h3>
-        <div class="row">
-            <div class="input-field col-sm-12 col-md-6 col-lg-3">
-              <input placeholder = "Type plant name" id="plant_name" type="text" name ="plant_name">>
-              <label for="plant_name">Plant Name</label>
-            </div>
-            <div class="input-field col-sm-12 col-md-6 col-lg-3">
-              <input placeholder="Type crop group" id="crop_group" type="text" name="crop_group">
-              <label for="crop_group">Crop Group</label>
-            </div>
-            <div class="input-field col-sm-12 col-md-6 col-lg-3">
-              <input placeholder="Type crop family" id="crop_family" type="text" name="crop_family">
-              <label for="crop_family">Crop Family</label>
-            </div>
-            <div class="input-field col-sm-12 col-md-6 col-lg-3">
-              <input placeholder="Best type soil for the plant" id="soil" type="text" name="soil">
-              <label for="soil">Soil</label>
-            </div>
-        </div>
-        <div class ="row">
-            <div class="switch col-sm-12 col-md-6">
-                <label>
-                          <input id="frost_tolerant" name="frost_tolerant" type="checkbox">
-                  <span class="lever"></span>
-                  Is Frost Tolerent
-                </label>
-            </div>  
-            <div class="switch col-sm-12 col-md-6">
-                <label>
-                         <input id="feeding" name="feeding" type="checkbox">
-                  <span class="lever"></span>
-                  Feeding required
-                </label>
-            </div>                        
-        </div>
+    <section class="container">
       <div class="row">
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="companions" name="companions" class="materialize-textarea"></textarea>
-          <label for="companions">Companions</label>
-        </div>
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="spacing" name="spacing" class="materialize-textarea"></textarea>
-          <label for="spacing">Spacing</label>
-        </div>
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="Sow_and_Plant" name="Sow_and_Plant" class="materialize-textarea"></textarea>
-          <label for="Sow_and_Plant">Sow and Plant</label>
-        </div>
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="position" name="position" class="materialize-textarea"></textarea>
-          <label for="position">Position</label>
-        </div>
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="Pests" name="Pests" class="materialize-textarea"></textarea>
-          <label for="Pests">Pests</label>
-        </div>
-        <div class="input-field col-sm-12 col-md-6">
-          <textarea id="Note" name="Note" class="materialize-textarea"></textarea>
-          <label for="Note">Notes and Tips</label>
-        </div>        
-        <div class="input-field inline col-sm-12 col-md-12">
-          <input id="picture_link" name="picture_link" type="url" class="validate">
-          <label for="picture_link" data-error="wrong" data-success="right">Picture link</label>
-        </div>
-      </div>
+        <form action="{{ url_for('insert_plant') }}" method="POST" class="col s12">
+          <h3 class="header-edit-form">Add new plant</h3>
+            <div class="row">
+                <div class="input-field col-sm-12 col-md-6 col-lg-3">
+                  <input placeholder = "Type plant name" id="plant_name" type="text" name ="plant_name">>
+                  <label for="plant_name">Plant Name</label>
+                </div>
+                <div class="input-field col-sm-12 col-md-6 col-lg-3">
+                  <input placeholder="Type crop group" id="crop_group" type="text" name="crop_group">
+                  <label for="crop_group">Crop Group</label>
+                </div>
+                <div class="input-field col-sm-12 col-md-6 col-lg-3">
+                  <input placeholder="Type crop family" id="crop_family" type="text" name="crop_family">
+                  <label for="crop_family">Crop Family</label>
+                </div>
+                <div class="input-field col-sm-12 col-md-6 col-lg-3">
+                  <input placeholder="Best type soil for the plant" id="soil" type="text" name="soil">
+                  <label for="soil">Soil</label>
+                </div>
+            </div>
+            <div class ="row">
+                <div class="switch col-sm-12 col-md-6">
+                    <label>
+                              <input id="frost_tolerant" name="frost_tolerant" type="checkbox">
+                      <span class="lever"></span>
+                      Is Frost Tolerent
+                    </label>
+                </div>  
+                <div class="switch col-sm-12 col-md-6">
+                    <label>
+                             <input id="feeding" name="feeding" type="checkbox">
+                      <span class="lever"></span>
+                      Feeding required
+                    </label>
+                </div>                        
+            </div>
+          <div class="row">
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="companions" name="companions" class="materialize-textarea"></textarea>
+              <label for="companions">Companions</label>
+            </div>
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="spacing" name="spacing" class="materialize-textarea"></textarea>
+              <label for="spacing">Spacing</label>
+            </div>
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="Sow_and_Plant" name="Sow_and_Plant" class="materialize-textarea"></textarea>
+              <label for="Sow_and_Plant">Sow and Plant</label>
+            </div>
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="position" name="position" class="materialize-textarea"></textarea>
+              <label for="position">Position</label>
+            </div>
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="Pests" name="Pests" class="materialize-textarea"></textarea>
+              <label for="Pests">Pests</label>
+            </div>
+            <div class="input-field col-sm-12 col-md-6">
+              <textarea id="Note" name="Note" class="materialize-textarea"></textarea>
+              <label for="Note">Notes and Tips</label>
+            </div>        
+            <div class="input-field inline col-sm-12 col-md-12">
+              <input id="picture_link" name="picture_link" type="url" class="validate">
+              <label for="picture_link" data-error="wrong" data-success="right">Picture link</label>
+            </div>
+          </div>
+          
+          <table class="table table-bordered ">
+                    <h4> Plant and harvesting calender</h4>
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>                    
+                            <th scope="col">Jan</th>
+                            <th scope="col">Feb</th>
+                            <th scope="col">Mar</th>
+                            <th scope="col">Apr</th>
+                            <th scope="col">May</th>
+                            <th scope="col">Jun</th>
+                            <th scope="col">Jul</th>
+                            <th scope="col">Aug</th>
+                            <th scope="col">Sep</th>
+                            <th scope="col">Oct</th>
+                            <th scope="col">Nov</th>
+                            <th scope="col">Dec</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Sow under glass</th>
+                            {% for month in range(1, 13) %}
+                              <td>
+                                    <input name="sowing-under-glass-{{month}}" type="checkbox" class="filled-in" id="sowing-under-glass-{{month}}"  />
+                                    <label for="sowing-under-glass-{{month}}"></label>
+                              </td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                          <th scope="row">Outside seeding</th>
+                          {% for month in range(1, 13) %}
+                            <td>
+                                    <input name="outside-seeding-{{month}}" type="checkbox" class="filled-in" id="outside-seeding-{{month}}" />   
+                                    <label for="outside-seeding-{{month}}"></label>
+                            </td>    
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                          <th scope="row">Harvest</th>
+                          {% for month in range(1, 13) %}
+                            <td>
+                                    <input name="harvest-{{month}}" type="checkbox" class="filled-in" id="harvest-{{month}}" /> 
+                                    <label for="harvest-{{month}}"></label>
+                            </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+    
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>    
       
-      <table class="table table-bordered ">
-                <h4> Plant and harvesting calender</h4>
-                <thead>
-                    <tr>
-                        <th scope="col"></th>                    
-                        <th scope="col">Jan</th>
-                        <th scope="col">Feb</th>
-                        <th scope="col">Mar</th>
-                        <th scope="col">Apr</th>
-                        <th scope="col">May</th>
-                        <th scope="col">Jun</th>
-                        <th scope="col">Jul</th>
-                        <th scope="col">Aug</th>
-                        <th scope="col">Sep</th>
-                        <th scope="col">Oct</th>
-                        <th scope="col">Nov</th>
-                        <th scope="col">Dec</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">Sow under glass</th>
-                        {% for month in range(1, 13) %}
-                          <td>
-                                <input name="sowing-under-glass-{{month}}" type="checkbox" class="filled-in" id="sowing-under-glass-{{month}}"  />
-                                <label for="sowing-under-glass-{{month}}"></label>
-                          </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                      <th scope="row">Outside seeding</th>
-                      {% for month in range(1, 13) %}
-                        <td>
-                                <input name="outside-seeding-{{month}}" type="checkbox" class="filled-in" id="outside-seeding-{{month}}" />   
-                                <label for="outside-seeding-{{month}}"></label>
-                        </td>    
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                      <th scope="row">Harvest</th>
-                      {% for month in range(1, 13) %}
-                        <td>
-                                <input name="harvest-{{month}}" type="checkbox" class="filled-in" id="harvest-{{month}}" /> 
-                                <label for="harvest-{{month}}"></label>
-                        </td>
-                        {% endfor %}
-                    </tr>
-                </tbody>
-            </table>
-
-      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right">send</i>
-      </button>    
-  
-    </form>
-  </div>
-  
+        </form>
+      </div>
+    </section> 
 {% endblock %}
