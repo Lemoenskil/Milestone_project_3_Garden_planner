@@ -30,13 +30,23 @@ nav .brand-logo{
     position:relative; 
     height: 350px;
    }
+   
 }
 
 @media(min-width: 1024px){
     .container{
         overflow: hidden!important;
     }
+    .fixed-action-btn{
+    right:15%!important;
+    bottom:15%!important;
+    }
+    .btn-floating.btn-large{
+        width: 65px;
+        height: 65px;
+    }
 }
+
   
 .disp_search_out{
     position: relative;
@@ -164,4 +174,9 @@ a:hover{
 
 .nav-wrapper{
     background-color: forestgreen;
+}
+
+.fixed-action-btn{
+    right:6%;
+    bottom:6%;
 }
