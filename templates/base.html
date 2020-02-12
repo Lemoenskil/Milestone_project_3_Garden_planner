@@ -59,11 +59,14 @@
     <footer class="page-footer">
         <div class="container" class="footer-copyright">
             <br>
+            {% if 'username' not in session %}
             <p class="text-dark font-italic bg-transparent float-left"> 
                 <a href="{{ url_for('login') }}">login</a>
                  or 
                 <a href="{{ url_for('register_new_user') }}">register</a>.
             </p>
+            {% else %}
+            {% endif %}
             <p class=float-right> © 2020 Copyright Garden Planner North Brabant</p>
         </div>
     </footer>
