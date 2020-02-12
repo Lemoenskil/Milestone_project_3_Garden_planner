@@ -1,48 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <div class="row justify-content-center">
-        <div>
-            <h1 class="text-center">Sign In</h1>
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                    <li class="alert-warning">{{ message }}</li>
-                    {% endfor %}
-                </ul>
-        </div>
-                {% endif %}
-            {% endwith %}
-        <form action="" method="post">
-            {{ form.csrf_token }}
-                
-            <div class="input-field"  >
-                {{ form.username.label }}<br>
-                {{ form.username(size=50) }}<br>
-                {% for error in form.username.errors %}
-                    <span style="color: red;">{{ error }}</span>
-                {% endfor %}
-            </div>
-            <div class="input-field">
-                {{ form.password.label }}<br>
-                {{ form.password(size=50) }}<br>
-                {% for error in form.password.errors %}
-                    <span style="color: red;">{{ error }}</span>
-                {% endfor %}
-            </div>
-            <div>
-                <p>
-                {{ form.remember_me() }} {{ form.remember_me.label }}
-                </p>
-            </div>
-            <button class="btn waves-effect waves-light">
-                <p>{{ form.submit() }}</p>
-            </button>
-        </form>
-        <br>
-        <p>Not registered? Then please <a href="{{ url_for('register_new_user') }}">register here</a></p>
-    </div>
     
+        <div class="row">
+            <div class="justify-content-center col-lg-12 "
+                <div>
+                    <h1 class="text-center">Sign In</h1>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                            <li class="alert-warning">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                </div>
+                        {% endif %}
+                    {% endwith %}
+                <form action="" method="post">
+                    {{ form.csrf_token }}
+                        
+                    <div class="input-field"  >
+                        {{ form.username.label }}<br>
+                        {{ form.username(size=50) }}<br>
+                        {% for error in form.username.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="input-field">
+                        {{ form.password.label }}<br>
+                        {{ form.password(size=50) }}<br>
+                        {% for error in form.password.errors %}
+                            <span style="color: red;">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <p>
+                        {{ form.remember_me() }} {{ form.remember_me.label }}
+                        </p>
+                    </div>
+                    <button class="btn waves-effect waves-light">
+                        <p>{{ form.submit() }}</p>
+                    </button>
+                </form>
+                <br>
+                <p>Not registered? Then please <a href="{{ url_for('register_new_user') }}">register here</a></p>
+            </div>
+        </div>
+
 {% endblock %}
 

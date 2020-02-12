@@ -40,7 +40,7 @@
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
-                    <li><a href="{{ url_for('register_new_user') }}">Register</a></li>
+                    <li><a href="{{url_for('register_new_user') }}">Register</a></li>
                     <li><a href="{{url_for('logout')}}">Log off</a></li>
                     <li><a href="{{ url_for('login') }}">Sign In</a></li>
                 </ul>
@@ -51,7 +51,7 @@
                             
     </header>
     
-    <main>
+    <main class="container">
         {% block content %}{% endblock %}
         
     </main>
@@ -64,7 +64,7 @@
                  or 
                 <a href="{{ url_for('register_new_user') }}">register</a>.
             </p>
-            <p class=float-right> © 2014 Copyright Text </p>
+            <p class=float-right> © 2020 Copyright Garden Planner North Brabant</p>
         </div>
     </footer>
     

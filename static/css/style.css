@@ -31,8 +31,20 @@ nav .brand-logo{
     height: 350px;
    }
 }
-  
 
+@media(min-width: 1024px){
+    .container{
+        overflow: hidden!important;
+    }
+}
+  
+.disp_search_out{
+    position: relative;
+}
+
+.disp_search_in{
+    display: inline-block;
+}
 .card{
   width: 100%;
 }
