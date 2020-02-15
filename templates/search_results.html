@@ -3,7 +3,7 @@
 
   <div class="row mt-4">
     <h1>Results for: <em>{{query}}</em>.</h1>
-    <div class=" text-center justify-content-cente col-lg-12 disp_search_out font">
+    <div class=" text-center justify-content-center col-lg-12 disp_search_out font">
       {% for plant in results %}
         <a href="{{url_for('view_plant', plant_id=plant._id)}}" class="disp_search_in card col-md-4 col-lg-3 mt-5 col-sm-12 col-xl-3">
           <img src="{{plant.picture_link}}" class="card-img-top" alt="">
