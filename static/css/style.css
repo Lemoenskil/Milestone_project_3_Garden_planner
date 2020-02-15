@@ -1,63 +1,4 @@
-.mt-5, .my-5 {
-    margin: 2rem!important;
-}
-
-nav .brand-logo{
-    font-size: 1.2rem!important;
-}
-
-.jumbotron {
-    background-color: transparent;
-    width: 100%;
-}
-  
-.image{
-    margin-top: 10px;
-    background-image:url("/static/images/gardeners.gif");
-    background-size: cover;  
-}
-
-.inner{
-    margin-top:70px ;
-    }
-
-@media(min-width: 450px){
-    .inner{
-   position:absolute;
-   bottom: 0;
-    }
-   .jumbotron{
-    position:relative; 
-    height: 350px;
-   }
-   
-}
-
-@media(min-width: 1020px){
-    .container{
-        overflow: hidden!important;
-    }
-    .fixed-action-btn{
-    right:15%!important;
-    bottom:15%!important;
-    }
-    .btn-floating.btn-large{
-        width: 65px;
-        height: 65px;
-    }
-}
-
-  
-.disp_search_out{
-    position: relative;
-}
-
-.disp_search_in{
-    display: inline-block;
-}
-.card{
-  width: 100%;
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Anton:300,400,500|Maven Pro:100,200,300,400,500,600,700');
 
 body {
   display: flex;
@@ -68,6 +9,79 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+
+/*------------------------------------------------------------------Navbar------------- */
+                         
+nav .brand-logo{
+    font-size: 1.2rem!important;
+    
+}
+
+.nav-wrapper{
+    background-color: forestgreen;
+    font-family: Roboto!important;
+    font-weight: 700;
+    
+}
+
+/*------------------------------------------------------------------Jumbothron------------- */
+
+.jumbotron {
+    background-color: transparent;
+    width: 100%;
+    font-family: Roboto!important;
+    font-weight: 700;
+    color: #E1EAF1;
+}
+  
+.image{
+    margin-top: 10px;
+    background-image:url("/static/images/gardeners.gif");
+    background-size: cover;  
+}
+
+
+.inner{
+    margin-top:70px ;
+    }
+
+
+.disp_search_out{
+    position: relative;
+}
+
+.disp_search_in{
+    display: inline-block;
+}
+
+
+.search_box{
+    background-color: #E1EAF1!important;
+    border-radius: 6px!important;
+}
+
+.search_btn{
+    background-color: #E55500!important;
+    border-radius: 6px!important;
+}
+
+
+
+.mt-5, .my-5 {
+    margin: 2rem!important;
+}
+
+
+
+
+
+
+.card{
+  width: 100%;
+}
+
+            
 
 
 .page-footer{
@@ -109,10 +123,7 @@ a:hover{
     box-shadow: none;
 }
 
-.search_box{
-    width: 100%;
-    margin: 6%;
-}
+
 .align-items-center{
     margin: 0px!important;
 }
@@ -172,11 +183,39 @@ a:hover{
    margin: 0 !important;
 }
 
-.nav-wrapper{
-    background-color: forestgreen;
-}
+
 
 .fixed-action-btn{
     right:6%;
     bottom:6%;
 }
+
+/*------------------------------------------------------------------Media Queries------------- */
+
+@media(min-width: 450px){
+    .inner{
+   position:absolute;
+   bottom: 0;
+    }
+   .jumbotron{
+    position:relative; 
+    height: 350px;
+   }
+   
+}
+
+@media(min-width: 1020px){
+    .container{
+        overflow: hidden!important;
+    }
+    .fixed-action-btn{
+    right:15%!important;
+    bottom:15%!important;
+    }
+    .btn-floating.btn-large{
+        width: 65px;
+        height: 65px;
+    }
+}
+
+  
