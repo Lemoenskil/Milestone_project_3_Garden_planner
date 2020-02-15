@@ -40,9 +40,15 @@
                     <li><a href="{{url_for('get_plant_record')}}">Home</a></li>
                     <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
                     <li><a href="{{url_for('list_plant')}}">Plant Calander</a></li>
-                    <li><a href="{{url_for('register_new_user') }}">Register</a></li>
-                    <li><a href="{{url_for('logout')}}">Log off</a></li>
-                    <li><a href="{{ url_for('login') }}">Sign In</a></li>
+                {% if 'username' not in session %}
+                    <li><a href="{{url_for('login')}}">Sign-in / Register</a></li>        
+                {% else %}            
+                   <li><a href="{{url_for('add_plant')}}">New Plant</a></li>
+                    <li><a href='#' data-activates='dropdown1' class="dropdown-button">
+                        <i class="small material-icons left">account_circle</i> {{session['username']}}</a>
+                    </li>
+                {% endif %}
+                   
                 </ul>
             </div>
         </nav> 
