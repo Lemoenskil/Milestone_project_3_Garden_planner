@@ -16,7 +16,7 @@ app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.
 # Set the secret key to some random bytes. Keep this really secret!
 app.secret_key = os.environ.get('SECRET_KEY') or 'y6rdh777y685hf67gk9786j65g9h*&^^*(^'
 
-plants_per_page = 6
+PLANTS_PER_PAGE = 6
 
 mongo = PyMongo(app)
 
@@ -24,11 +24,11 @@ mongo = PyMongo(app)
 @app.route('/plant_records')
 def get_plant_record():
     page_number = int(request.args.get('page', 1))
-    plants_to_skip = (page_number - 1) * plants_per_page
+    plants_to_skip = (page_number - 1) * PLANTS_PER_PAGE
     plant_count = mongo.db.plant_data.count({})
-    page_count = int(math.ceil(plant_count / plants_per_page))
+    page_count = int(math.ceil(plant_count / PLANTS_PER_PAGE))
     page_numbers = range(1, page_count + 1)
-    plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(plants_per_page)
+    plants_on_page = mongo.db.plant_data.find().skip(plants_to_skip).limit(PLANTS_PER_PAGE)
     return render_template("plant_records.html", title="Home", plants=plants_on_page, page=page_number, pages=page_numbers, total=page_count)
 
 @app.route('/register', methods=['GET', 'POST'])

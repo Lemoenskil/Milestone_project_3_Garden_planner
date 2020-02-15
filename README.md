@@ -113,10 +113,10 @@ Form with a warning and a sudmit button
 
 
 ##### Font
-xxxx
+Google fount Roboto is used
 
 ##### Colour Scheme
-xxxx
+Green Orange and White Scheme with a purple Jumbothron
 
 ## Features
 
@@ -133,10 +133,8 @@ xxxx
 - In the navbar you are redirected to the register page where you can create a user using a form.
 - The option to loging is also on the landing page, which will redirect you to a form to loging
 - In the responsive view for mobile ther are a side nav bar and the basic sizing
-
-- ????The forms to add and edit vegetable entries have sensible defaults for which fields are required and which are not editable, and for exampe allow only alphabetic characters in common names, genera and species.
-
-- ????When editing or adding a vegetable, the user has the option of uploading a photograph, which will be saved and displayed in the detailed view.
+- The creation of an account to edit add and delete records.
+- Option on the login screen to register. 
 
 ### Features Left to Implement
 
@@ -148,35 +146,43 @@ xxxx
 - A option to create your own account select select your plants and get your own calender
 
 
-
-
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+- Python
+- HTML5
+- CSS / Bootstrap 4
+- CSS / Materialize
+- JS / JQuery
+- Mongo
+- Flask
+- Heroku
 
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+The app has been manually tested extensively throughout the development process, and when bugs have been found they where fixed or a workaround was implemented.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+The plant_records page and is tested that they loads the data,the pagenation work, and the links are working correctly.
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+The registration page are tested, for mismatched passwords, duplicate user names, as well as successful registration that is show when the username is on the navbar.
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+The login page is tested as all senarios for delete, change and created operations required a logged in user. 
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+The add_plant page is tested by checking that a plant is entered on sudmit, the page redirects and the new plant is seen on the plant record page.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+The plant_records page search functionality  is tested by searching for plant on the  page, getting its id number and going to that search_results page.  
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+The update_plant page is tested by going to a logged in users view_plant and then via the floating button edit to update_plant page and changing some data and committing it. This the redirects the user to teh plant_records page and check that the information has changed on that plant record. 
+  
+The delete functionality is tested by going via view_plant to delete where you get modal as a warning and deleting it, then checking the redirect has happened and that the plant does not appear on the the plant_records page.
+
+The list plant page is teste by going via the navbar to the page and check that the data has loaded.
+
+The logout functionality was tested via the navbar a loged in user can logout I have test that as then the name was not visable and the option to sign in was on the navbar and the footer.
+
+As the site is built with a responsive design it works for mobiles it has been checked  on iPhones 6 to X, Samsung Galaxys, iPads (mini to pro), Google's Pixel 2 and 3.
+
+It has been tested with  Chrome Dev Tools and on my Android phone. 
 
 ## Deployment
 
