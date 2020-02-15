@@ -187,6 +187,8 @@ As the site is built with a responsive design it works for mobiles it has been c
 
 It has been tested with  Chrome Dev Tools and on my Android phone. 
 
+Test CSS with css-validator
+
 ## Deployment
 
 The app is deployed to Heroku and can be accessed at [https://yvette-garden-planner.herokuapp.com/].
