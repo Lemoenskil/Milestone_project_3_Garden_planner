@@ -10,6 +10,28 @@ main {
   flex: 1 0 auto;
 }
 
+a{
+    color: #E55500;
+    font-family: Roboto;
+    font-weight: 800!important; 
+}
+a:hover{
+    color: #001660;
+    font-family: Roboto;
+    font-weight: 600!important; 
+}
+
+
+.container {
+    overflow: auto;
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+
 
 /*------------------------------------------------------------------Navbar------------- */
                          
@@ -67,23 +89,48 @@ nav .brand-logo{
 }
 
 
-
-.mt-5, .my-5 {
-    margin: 2rem!important;
-}
-
-
-
-
+/*------------------------------------------------------------------Main_Cards_pagintate------------- */
 
 
 .card{
   width: 100%;
 }
 
-            
+.mt-5, .my-5 {
+    margin: 2rem!important;
+}
 
 
+.page-item.active .page-link{
+    background-color: forestgreen;
+}
+
+.page-item.active .page-link{
+    z-index: 0!important;
+}
+
+.btn:hover {
+    background-color:forestgreen!important;
+}
+
+  
+.card-title{
+    color: #E55500;
+    font-family: Roboto;
+    font-weight: 800!important; 
+}    
+
+.card-img-top{
+    width: 100%;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+.card-sm{
+  margin-bottom: 50px;
+}  
+
+/*------------------------------------------------------------------Footer------------- */
 .page-footer{
     left: 0;
     bottom: 0;
@@ -94,24 +141,8 @@ nav .brand-logo{
     padding: 0px;
 }
 
-.page-item.active .page-link{
-    background-color: forestgreen;
-}
 
-.btn:hover {
-    background-color:forestgreen!important;
-}
-
-a{
-    color: greenyellow;
-}
-a:hover{
-    color: darkorange;
-}
-
-.card-sm{
-  margin-bottom: 50px;
-}
+/*------------------------------------------------------------------Forms------------- */
 
 .form-control-borderless {
     border: none;
@@ -156,15 +187,13 @@ a:hover{
   display:table-cell;
 }
 
-.page-item.active .page-link{
-    z-index: 0!important;
+.fixed-action-btn{
+    right:6%;
+    bottom:6%;
 }
+                      
+/*------------------------------------------------------------------Modal------------- */
 
-.card-img-top{
-    width: 100%;
-    min-height: 300px;
-    object-fit: cover;
-}
 .modal{
     background-color: transparent;
     max-height: 100%;
@@ -174,21 +203,7 @@ a:hover{
     background-color: transparent;
 }
 
-.container {
-    overflow: auto;
-}
 
-.nopadding {
-   padding: 0 !important;
-   margin: 0 !important;
-}
-
-
-
-.fixed-action-btn{
-    right:6%;
-    bottom:6%;
-}
 
 /*------------------------------------------------------------------Media Queries------------- */
 
