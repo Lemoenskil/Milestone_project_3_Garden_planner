@@ -4,19 +4,23 @@
 <div class="row justify-content-center image">
   <div class="jumbotron jumbotron-fluid text-left ml-2  font-weight-bold">
     <h1 class="display-6">Garden planner</h1>
-    <p class="lead">Plan your vegatable and Fruit garden all year round</p>
-    <hr class="my-6">
-    <p>Just create your user and get started. Update and add your own knowledge.</p>
-    <p>Share new crops and different growing techniques for gardens </p>
-    <p>in North Brabant.</p>
+    <div class="col-lg-6 col-sm-12 col-md-8 containter-fluid float-left">
+      <p class="lead">Plan your vegatable and Fruit garden all year round</p>
+      <p>Just create your user and get started. Update and add your own knowledge.</p>
+      <p>Share new crops and different growing techniques for gardens </p>
+      <p>in North Brabant.</p>
+    </div>
+
     <div class="row container-fluid inner">
-      <form class="col-lg-6 nopadding" id="search-site" action="{{ url_for('search') }}" ' method='get '>
-        <div class="input-group mt-5 col-8 nopadding">
-          <div class="col-6 float-right nopadding">
-          <button type="submit" class="input-group-addon btn search_btn">search</button>
+      <form class="col-lg-6 col-sm-12 col-md-8 col-sm-12 col-12 nopadding" id="search-site" action="{{ url_for('search') }}" ' method='get '>
+        <div class="input-group col-12 col-md-12 col-lg-8 nopadding">
+          <div class="col-lg-2 col-md-3  col-3 float-right nopadding">
+            <button type="submit" class="input-group-addon btn search_btn">search</button>
           </div>        
-          <div class="col-6 float-left nopadding">
-          <label><input id="search" type="search" name='query' class="col-9 nopadding search_box"></label>
+          <div class="col-lg-9 col-md-8 col-8 float-left nopadding">
+            <label class="col-12 col-sm-12 col-md-12 nopadding search_box">
+              <input id="search" type="search" name='query' class="nopadding search_box">
+            </label>
           </div>        
         </div>
       </form>

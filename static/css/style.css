@@ -81,6 +81,8 @@ nav .brand-logo{
 .search_box{
     background-color: #E1EAF1!important;
     border-radius: 6px!important;
+    width: 100%!important;
+    margin:0px!important;
 }
 
 .search_btn{
@@ -143,6 +145,11 @@ nav .brand-logo{
 
 
 /*------------------------------------------------------------------Forms------------- */
+.font{
+    font-family: Roboto;
+/*    font-weight: 800!important; 
+*/    
+}
 
 .form-control-borderless {
     border: none;
@@ -209,7 +216,7 @@ nav .brand-logo{
 
 @media(min-width: 450px){
     .inner{
-   position:absolute;
+   position:sticky;
    bottom: 0;
     }
    .jumbotron{
