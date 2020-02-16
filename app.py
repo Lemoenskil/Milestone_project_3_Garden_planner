@@ -11,7 +11,7 @@ import bcrypt
 
 app = Flask ("----name----")
 app.config["MONGO_DBNAME"] = 'garden_planner'
-app.config["MONGO_URI"] = 'mongodb+srv://CP3O:iYmkh8QOgi2fhu2y@lemoenskil-4vjdx.mongodb.net/garden_planner?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
 
 # Set the secret key to some random bytes. Keep this really secret!
 app.secret_key = os.environ.get('SECRET_KEY') or 'y6rdh777y685hf67gk9786j65g9h*&^^*(^'
