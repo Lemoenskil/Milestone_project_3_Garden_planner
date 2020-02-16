@@ -1,4 +1,3 @@
-import os
 from flask import Flask, render_template, redirect, abort, request, url_for, session, flash
 from flask_pymongo import PyMongo
 from form import LoginForm, RegisterForm
@@ -6,12 +5,12 @@ from bson.objectid import ObjectId
 import math
 import re
 import bcrypt
-
+import os
 
 
 app = Flask ("----name----")
+app.config["MONGO_URI"] = os.environ.get('MONGODB_URI')
 app.config["MONGO_DBNAME"] = 'garden_planner'
-app.config["MONGO_URI"] = os.environ.get("MONGODB_URI")
 
 # Set the secret key to some random bytes. Keep this really secret!
 app.secret_key = os.environ.get('SECRET_KEY') or 'y6rdh777y685hf67gk9786j65g9h*&^^*(^'
