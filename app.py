@@ -13,7 +13,7 @@ app.config["MONGO_URI"] = os.environ.get('MONGODB_URI')
 app.config["MONGO_DBNAME"] = 'garden_planner'
 
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = os.environ.get('SECRET_KEY') or 'y6rdh777y685hf67gk9786j65g9h*&^^*(^'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 PLANTS_PER_PAGE = 6
 
