@@ -23,6 +23,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/plant_records')
 def get_plant_record():
+    """Landing page 6 plants from the data base with pagination"""
     page_number = int(request.args.get('page', 1))
     plants_to_skip = (page_number - 1) * PLANTS_PER_PAGE
     plant_count = mongo.db.plant_data.count({})
@@ -96,6 +97,7 @@ def logout():
 
 @app.route('/list_plant') 
 def list_plant():
+    """List all plant calender table"""
     return render_template("list_plant.html", plants=mongo.db.plant_data.find())
 
 @app.route('/view_plant/<plant_id>')
@@ -109,12 +111,14 @@ def view_plant(plant_id):
 
 @app.route('/add_plant')
 def add_plant():
+    """redirect to add plant form"""
     if 'username' not in session:
         return redirect(url_for('login'))
     return render_template("add_plant.html")
  
 @app.route('/insert_plant', methods=['POST'])
 def insert_plant():
+    """Insert a new plant record"""
     if 'username' not in session:
         abort(401)
     plants = mongo.db.plant_data
@@ -129,6 +133,7 @@ def update_plant(plant_id):
     return render_template('update_plant.html', plant=plants)
                            
 def convert_form_to_plant_data(form):
+    """form data """
     value_sowing_under_glass = [ month for month in range(1, 13) if f"sowing-under-glass-{month}" in form ]
     value_outside_seeding = [ month for month in range(1, 13) if f"outside-seeding-{month}" in form ]
     value_harvest = [ month for month in range(1, 13) if f"harvest-{month}" in form ]
@@ -154,7 +159,7 @@ def convert_form_to_plant_data(form):
     
 @app.route('/edit_plant/<plant_id>', methods=["POST"])
 def edit_plant(plant_id):
-    print("whapsie")
+    """Allow login user to edit plants"""
     if 'username' not in session:
         abort(401)
     plants = mongo.db.plant_data
@@ -163,7 +168,7 @@ def edit_plant(plant_id):
     
 @app.route('/delete_plant/<plant_id>')
 def delete_plant(plant_id):
-    print("oopsie")
+    """Allows login user to delete plant records"""
     if 'username' not in session:
         abort(401)
     mongo.db.plant_data.remove({'_id': ObjectId(plant_id)})
